@@ -18,7 +18,7 @@ class Loan extends DataObject {
     'Amount' => 'Currency',
     'StartDate' => 'Date',
     'EndDate' => 'Date',
-    'InterestRate' => 'Percentage'
+    'InterestRate' => 'Varchar'
   ];
 
   private static $has_one = [

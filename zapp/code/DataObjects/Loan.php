@@ -18,9 +18,9 @@ class Loan extends DataObject {
     'Amount' => 'Currency',
     'StartDate' => 'Date',
     'EndDate' => 'Date',
-    'InterestRate' => 'Varchar'
+    'InterestRate' => 'Percentage'
   ];
-  
+
   private static $has_one = [
     'Loanee' => Loanee::class
   ];
@@ -39,7 +39,7 @@ class Loan extends DataObject {
     return $fields;
 
   }
-  
+
   private static $summary_fields = [
     'Amount' => 'Amount',
     'StartDate' => 'Start date',

@@ -9,6 +9,8 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
+use mt2\Loanee;
+
 class Loan extends DataObject {
 
   private static $db = [
@@ -16,6 +18,10 @@ class Loan extends DataObject {
     'StartDate' => 'Varchar',
     'EndDate' => 'Varchar',
     'InterestRate' => 'Varchar'
+  ];
+  
+  private static $has_one = [
+    'Loanee' => Loanee::class
   ];
 
   public function getCMSFields() {

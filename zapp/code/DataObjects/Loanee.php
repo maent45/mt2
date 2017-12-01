@@ -58,7 +58,8 @@ class Loanee extends DataObject {
     'LastName' => 'Last name',
     'Email' => 'Email',
     'Phone' => 'Phone',
-    'Mobile' => 'Mobile'
+    'Mobile' => 'Mobile',
+    'Created' => 'Registered on'
   ];
 
 }

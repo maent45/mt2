@@ -23,7 +23,8 @@ class RegistrationPage_Controller extends PageController {
   
   private static $allowed_actions = [
     'form',
-    'submit'
+    'submit',
+    'Success'
   ];
   
   public function form() {
@@ -69,6 +70,8 @@ class RegistrationPage_Controller extends PageController {
     
     $this->emailAdminOnRegistration();
     
+    return $this->redirect($this->Link("?success=1"));
+    
   }
   
   public function emailAdminOnRegistration() {
@@ -81,6 +84,10 @@ class RegistrationPage_Controller extends PageController {
     $email->setBody("A new application has been created");
     $email->send();
     
+  }
+  
+  public function Success() {
+    return isset($_REQUEST['success']) && $_REQUEST['success'] == "1";
   }
     
 }

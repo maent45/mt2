@@ -6,6 +6,7 @@ use SilverStripe\Assets\File;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\ReadonlyField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Forms\GridField\GridField;
@@ -34,11 +35,11 @@ class Loanee extends DataObject {
     $fields->removeByName("Loans");
 
     $fields->addFieldsToTab('Root.Main', array(
-      TextField::create('FirstName'),
-      TextField::create('LastName'),
-      TextField::create('Email'),
-      TextField::create('Phone'),
-      TextField::create('Mobile')
+      ReadonlyField::create('FirstName'),
+      ReadonlyField::create('LastName'),
+      ReadonlyField::create('Email'),
+      ReadonlyField::create('Phone'),
+      ReadonlyField::create('Mobile')
     ));
     
     $fields->addFieldToTab('Root.Main', GridField::create(

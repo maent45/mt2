@@ -9,6 +9,7 @@ use SilverStripe\Forms\Form;
 use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Control\Email\Email;
 
 use mt2\Loanee;
 
@@ -65,6 +66,20 @@ class RegistrationPage_Controller extends PageController {
     $newLoanee->write();
     $form->saveInto($newLoanee);
     $newLoanee->write();
+    
+    $this->emailAdminOnRegistration();
+    
+  }
+  
+  public function emailAdminOnRegistration() {
+    
+    $email = new Email();
+    
+    $email->setTo("maent45@gmail.com");
+    $email->setFrom("mt2dev@test.com");
+    $email->setSubject("New application");
+    $email->setBody("A new application has been created");
+    $email->send();
     
   }
     
